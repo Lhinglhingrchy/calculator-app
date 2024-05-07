@@ -7,6 +7,20 @@ function App() {
   const handle = (e) => {
     setSummary(summary + e.target.innerHTML);
   };
+  // const handle = (e) => {
+  //   if (e.target.innerHTML === "%") {
+  //     const percentage = parseFloat(summary) / 100;
+  //     setSummary(percentage.toString());
+  //   } else {
+  //     setSummary(summary + e.target.innerHTML);
+  //   }
+  // };
+
+  const percentage = (e) => {
+    const percent = parseFloat(summary) / 100;
+    setSummary(percent.toString());
+  };
+
   const allClear = () => {
     setSummary("");
   };
@@ -19,14 +33,20 @@ function App() {
         <div className="calculator">
           {/* show calculate */}
           <div className="summary">
-            <input type="text" value={summary} />
+            <input
+              type="text"
+              onChange={(e) => {
+                setSummary(e.target.value);
+              }}
+              value={summary}
+            />
           </div>
           {/* all button */}
           <div className="all-button">
             <div className="button-line-1">
               <button onClick={allClear}>AC</button>
               <button onClick={dell}>DE</button>
-              <button>%</button>
+              <button onClick={percentage}>%</button>
               <button onClick={handle}>/</button>
             </div>
             <div className="button-line-2">
