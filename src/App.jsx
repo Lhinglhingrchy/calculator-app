@@ -20,7 +20,6 @@ function App() {
     const percent = parseFloat(summary) / 100;
     setSummary(percent.toString());
   };
-
   const allClear = () => {
     setSummary("");
   };
@@ -30,6 +29,7 @@ function App() {
   return (
     <>
       <div className="container">
+        <div className="title">Calculator</div>
         <div className="calculator">
           {/* show calculate */}
           <div className="summary">
